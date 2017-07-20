@@ -22,9 +22,8 @@ class GameViewController: UIViewController {
     private let upForce: String = "upForce"
     private let gravityValue: String = "gravityValue"
     private let darkMode: String = "darkMode"
-    private let firstTime: String = "firstTime"
     
-
+    
     func setSceneSettings() {
         scene.physicsWorld.gravity.y = userDefaults.float(forKey: gravityValue)
         scnView.allowsCameraControl = !userDefaults.bool(forKey: camLock)
@@ -34,23 +33,32 @@ class GameViewController: UIViewController {
         
         guard let floorNode: SCNNode = scene.rootNode.childNode(withName: "floor", recursively: true) else { return }
         let geoFloor: SCNFloor? = floorNode.geometry as? SCNFloor
-        guard let floor = geoFloor else { return }
-        guard let floorMaterial = floor.firstMaterial else { return }
+        guard let floor = geoFloor, let floorMaterial = floor.firstMaterial else { return }
         floorMaterial.diffuse.contents = UIColor(white: floorWhite, alpha: 1)
+    }
+    
+    func setDefaultsIfNone () {
+        
+        guard let appBundle: String = Bundle.main.bundleIdentifier else { return }
+        let appLibPath: [String] = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)
+        
+        if FileManager.default.fileExists(atPath: "\(appLibPath[0])/Preferences/\(appBundle).plist") {
+            return
+        } else {
+            userDefaults.set(false, forKey: scnStats)
+            userDefaults.set(false, forKey: camLock)
+            userDefaults.set(5, forKey: upForce)
+            userDefaults.set(-10, forKey: gravityValue)
+            userDefaults.set(false, forKey: darkMode)
+            userDefaults.synchronize()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if !userDefaults.bool(forKey: firstTime) {
-            userDefaults.set(false, forKey: scnStats)
-            userDefaults.set(false, forKey: camLock)
-            userDefaults.set(5, forKey: upForce)
-            userDefaults.set(-10, forKey: gravityValue)
-            userDefaults.set(true, forKey: firstTime)
-            userDefaults.set(false, forKey: darkMode)
-            userDefaults.synchronize()
-        }
+        // If the UserDefaults file doesn't exist, set values to values
+        setDefaultsIfNone()
         
         // create and add a light to the scene
         let lightNode: SCNNode = SCNNode()
