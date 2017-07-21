@@ -16,12 +16,21 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var upForceLabel: UILabel!
     @IBOutlet weak var gravityLabel: UILabel!
     @IBOutlet weak var darkModeLabel: UILabel!
+    @IBOutlet weak var skyColorLabel: UILabel!
+    @IBOutlet weak var floorColorLabel: UILabel!
+    @IBOutlet weak var cubeColorLabel: UILabel!
+    @IBOutlet weak var skyHue: UIImageView!
+    @IBOutlet weak var cubeHue: UIImageView!
+    @IBOutlet weak var floorHue: UIImageView!
     
     @IBOutlet weak var scnStatsSwitch: UISwitch!
     @IBOutlet weak var camLockSwitch: UISwitch!
     @IBOutlet weak var forceSlider: UISlider!
     @IBOutlet weak var gravitySlider: UISlider!
     @IBOutlet weak var darkModeSwitch: UISwitch!
+    @IBOutlet weak var skyColorSlider: UISlider!
+    @IBOutlet weak var floorColorSlider: UISlider!
+    @IBOutlet weak var cubeColorSlider: UISlider!
     
     private let userDefaults: UserDefaults = UserDefaults.standard
     private let scnStats: String = "scnStats"
@@ -29,17 +38,25 @@ class SettingsViewController: UIViewController {
     private let upForce: String = "upForce"
     private let gravityValue: String = "gravityValue"
     private let darkMode: String = "darkMode"
+    private let skyColor: String = "skyColor"
+    private let floorColor: String = "floorColor"
+    private let cubeColor: String = "cubeColor"
     
-    @IBAction func setViewColors() {
+    func setViewColors() {
         let background: UIColor
         let label: UIColor
+        let darkPrefix: String
+        
         if darkModeSwitch.isOn {
             background = .black
             label = .white
+            darkPrefix = "dark"
         } else {
             background = .white
             label = .black
+            darkPrefix = ""
         }
+        
         setNeedsStatusBarAppearanceUpdate()
         settingsView.backgroundColor = background
         showStats.textColor = label
@@ -48,6 +65,13 @@ class SettingsViewController: UIViewController {
         upForceLabel.textColor = label
         gravityLabel.textColor = label
         darkModeLabel.textColor = label
+        skyColorLabel.textColor = label
+        floorColorLabel.textColor = label
+        cubeColorLabel.textColor = label
+        
+        skyColorSlider.value = userDefaults.float(forKey: "\(darkPrefix)\(skyColor)")
+        floorColorSlider.value = userDefaults.float(forKey: "\(darkPrefix)\(floorColor)")
+        cubeColorSlider.value = userDefaults.float(forKey: "\(darkPrefix)\(cubeColor)")
     }
     
     override func viewDidLoad() {
@@ -58,6 +82,27 @@ class SettingsViewController: UIViewController {
         forceSlider.value = userDefaults.float(forKey: upForce)
         gravitySlider.value = 0-userDefaults.float(forKey: gravityValue)
         darkModeSwitch.isOn = userDefaults.bool(forKey: darkMode)
+        
+        skyHue.layer.cornerRadius = 15
+        floorHue.layer.cornerRadius = 15
+        cubeHue.layer.cornerRadius = 15
+        setViewColors()
+    }
+    
+    func saveColorSliders(darkPrefix: String) {
+        userDefaults.set(skyColorSlider.value, forKey: "\(darkPrefix)\(skyColor)")
+        userDefaults.set(floorColorSlider.value, forKey: "\(darkPrefix)\(floorColor)")
+        userDefaults.set(cubeColorSlider.value, forKey: "\(darkPrefix)\(cubeColor)")
+        userDefaults.synchronize()
+    }
+    
+    @IBAction func darkModeHit() {
+        if darkModeSwitch.isOn {
+            saveColorSliders(darkPrefix: "")
+        } else {
+            saveColorSliders(darkPrefix: "dark")
+        }
+        
         setViewColors()
     }
     
@@ -67,12 +112,13 @@ class SettingsViewController: UIViewController {
         userDefaults.set(forceSlider.value, forKey: upForce)
         userDefaults.set(0-gravitySlider.value, forKey: gravityValue)
         userDefaults.set(darkModeSwitch.isOn, forKey: darkMode)
-        userDefaults.synchronize()
-        
-        var gameViewController: GameViewController? {
-            return presentingViewController as? GameViewController
+        if darkModeSwitch.isOn {
+            saveColorSliders(darkPrefix: "dark")
+        } else {
+            saveColorSliders(darkPrefix: "")
         }
         
+        let gameViewController: GameViewController? = presentingViewController as? GameViewController
         guard let gameVC = gameViewController else { return }
         gameVC.setSceneSettings()
         
@@ -84,5 +130,3 @@ class SettingsViewController: UIViewController {
     }
     
 }
-
-

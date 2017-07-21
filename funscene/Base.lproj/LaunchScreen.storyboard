@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -30,11 +30,22 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ideas by GeneralCoolr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gC-SM-GAn">
+                                <rect key="frame" x="107.5" y="589" width="160.5" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="jiS-LX-91M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Ohh-BN-Kkn" secondAttribute="bottom" constant="26" id="6rZ-HU-TNw"/>
                             <constraint firstItem="Ohh-BN-Kkn" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="BCE-RV-IcO"/>
+                            <constraint firstItem="5gC-SM-GAn" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="EN3-86-fvk"/>
+                            <constraint firstItem="Ohh-BN-Kkn" firstAttribute="top" secondItem="5gC-SM-GAn" secondAttribute="bottom" constant="8" id="dLk-6V-LQB"/>
                         </constraints>
                     </view>
                 </viewController>
