@@ -195,23 +195,25 @@
                                 <rect key="frame" x="134" y="281" width="170" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ColorHue" translatesAutoresizingMaskIntoConstraints="NO" id="WKW-0J-U3u" userLabel="Sky Hue">
-                                        <rect key="frame" x="0.0" y="0.0" width="170" height="30"/>
+                                        <rect key="frame" x="6" y="1" width="158" height="29"/>
                                     </imageView>
-                                    <slider opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pkq-Ga-jIC">
+                                    <slider opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pkq-Ga-jIC">
                                         <rect key="frame" x="-2" y="0.0" width="174" height="31"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </slider>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="WKW-0J-U3u" secondAttribute="trailing" id="4ej-B7-Wok"/>
+                                    <constraint firstAttribute="trailing" secondItem="WKW-0J-U3u" secondAttribute="trailing" constant="6" id="4ej-B7-Wok"/>
                                     <constraint firstItem="pkq-Ga-jIC" firstAttribute="leading" secondItem="VdK-jR-AdJ" secondAttribute="leading" id="E7l-Nb-bxz"/>
                                     <constraint firstAttribute="bottom" secondItem="pkq-Ga-jIC" secondAttribute="bottom" id="MAT-nW-ndc"/>
-                                    <constraint firstItem="WKW-0J-U3u" firstAttribute="top" secondItem="VdK-jR-AdJ" secondAttribute="top" id="PuD-wC-0Gu"/>
+                                    <constraint firstItem="WKW-0J-U3u" firstAttribute="top" secondItem="VdK-jR-AdJ" secondAttribute="top" constant="1" id="PuD-wC-0Gu"/>
                                     <constraint firstItem="pkq-Ga-jIC" firstAttribute="top" secondItem="VdK-jR-AdJ" secondAttribute="top" id="TzA-Rt-cgr"/>
-                                    <constraint firstItem="WKW-0J-U3u" firstAttribute="leading" secondItem="VdK-jR-AdJ" secondAttribute="leading" id="eYl-nT-MtO"/>
+                                    <constraint firstItem="WKW-0J-U3u" firstAttribute="leading" secondItem="VdK-jR-AdJ" secondAttribute="leading" constant="6" id="eYl-nT-MtO"/>
                                     <constraint firstAttribute="bottom" secondItem="WKW-0J-U3u" secondAttribute="bottom" id="jvL-q8-kJ4"/>
                                     <constraint firstAttribute="trailing" secondItem="pkq-Ga-jIC" secondAttribute="trailing" id="y0g-ny-3vS"/>
                                 </constraints>
@@ -220,48 +222,52 @@
                                 <rect key="frame" x="134" y="367" width="170" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ColorHue" translatesAutoresizingMaskIntoConstraints="NO" id="Qyb-m1-4yo">
-                                        <rect key="frame" x="0.0" y="0.0" width="170" height="30"/>
+                                        <rect key="frame" x="6" y="1" width="158" height="29"/>
                                     </imageView>
-                                    <slider opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jHq-zr-hWd">
+                                    <slider opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jHq-zr-hWd">
                                         <rect key="frame" x="-2" y="0.0" width="174" height="31"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </slider>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Qyb-m1-4yo" firstAttribute="top" secondItem="zUw-Fo-V19" secondAttribute="top" id="Eej-rv-1ZX"/>
+                                    <constraint firstItem="Qyb-m1-4yo" firstAttribute="top" secondItem="zUw-Fo-V19" secondAttribute="top" constant="1" id="Eej-rv-1ZX"/>
                                     <constraint firstAttribute="bottom" secondItem="jHq-zr-hWd" secondAttribute="bottom" id="GvZ-Fb-SJ2"/>
                                     <constraint firstItem="jHq-zr-hWd" firstAttribute="top" secondItem="zUw-Fo-V19" secondAttribute="top" id="Rep-aS-4hI"/>
-                                    <constraint firstAttribute="trailing" secondItem="Qyb-m1-4yo" secondAttribute="trailing" id="S1S-rs-R4L"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qyb-m1-4yo" secondAttribute="trailing" constant="6" id="S1S-rs-R4L"/>
                                     <constraint firstAttribute="bottom" secondItem="Qyb-m1-4yo" secondAttribute="bottom" id="akO-c6-xNO"/>
                                     <constraint firstItem="jHq-zr-hWd" firstAttribute="leading" secondItem="zUw-Fo-V19" secondAttribute="leading" id="cLu-UZ-cck"/>
                                     <constraint firstAttribute="trailing" secondItem="jHq-zr-hWd" secondAttribute="trailing" id="mdT-Qq-ZsJ"/>
-                                    <constraint firstItem="Qyb-m1-4yo" firstAttribute="leading" secondItem="zUw-Fo-V19" secondAttribute="leading" id="sWb-tz-bSd"/>
+                                    <constraint firstItem="Qyb-m1-4yo" firstAttribute="leading" secondItem="zUw-Fo-V19" secondAttribute="leading" constant="6" id="sWb-tz-bSd"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06D-OD-wgT" userLabel="Floor View">
                                 <rect key="frame" x="134" y="324" width="170" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ColorHue" translatesAutoresizingMaskIntoConstraints="NO" id="5Kr-1V-4HI">
-                                        <rect key="frame" x="0.0" y="0.0" width="170" height="30"/>
+                                        <rect key="frame" x="6" y="1" width="158" height="29"/>
                                     </imageView>
-                                    <slider opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="DvJ-pS-gCl">
+                                    <slider opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="DvJ-pS-gCl">
                                         <rect key="frame" x="-2" y="0.0" width="174" height="31"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </slider>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="DvJ-pS-gCl" secondAttribute="trailing" id="1HH-Id-phi"/>
-                                    <constraint firstItem="5Kr-1V-4HI" firstAttribute="top" secondItem="06D-OD-wgT" secondAttribute="top" id="1f2-3n-T8U"/>
+                                    <constraint firstItem="5Kr-1V-4HI" firstAttribute="top" secondItem="06D-OD-wgT" secondAttribute="top" constant="1" id="1f2-3n-T8U"/>
                                     <constraint firstAttribute="bottom" secondItem="DvJ-pS-gCl" secondAttribute="bottom" id="PRm-7y-M5d"/>
-                                    <constraint firstItem="5Kr-1V-4HI" firstAttribute="leading" secondItem="06D-OD-wgT" secondAttribute="leading" id="bKD-RX-5k3"/>
+                                    <constraint firstItem="5Kr-1V-4HI" firstAttribute="leading" secondItem="06D-OD-wgT" secondAttribute="leading" constant="6" id="bKD-RX-5k3"/>
                                     <constraint firstItem="DvJ-pS-gCl" firstAttribute="leading" secondItem="06D-OD-wgT" secondAttribute="leading" id="lMA-36-II6"/>
-                                    <constraint firstAttribute="trailing" secondItem="5Kr-1V-4HI" secondAttribute="trailing" id="nOc-Ax-DCI"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Kr-1V-4HI" secondAttribute="trailing" constant="6" id="nOc-Ax-DCI"/>
                                     <constraint firstItem="DvJ-pS-gCl" firstAttribute="top" secondItem="06D-OD-wgT" secondAttribute="top" id="rQi-YE-BCz"/>
                                     <constraint firstAttribute="bottom" secondItem="5Kr-1V-4HI" secondAttribute="bottom" id="rXK-uP-WlA"/>
                                     <constraint firstAttribute="height" constant="30" id="rji-2X-ml4"/>

@@ -59,15 +59,11 @@ class SettingsViewController: UIViewController {
         
         setNeedsStatusBarAppearanceUpdate()
         settingsView.backgroundColor = background
-        showStats.textColor = label
-        camLockLabel.textColor = label
-        camLockLabel.textColor = label
-        upForceLabel.textColor = label
-        gravityLabel.textColor = label
-        darkModeLabel.textColor = label
-        skyColorLabel.textColor = label
-        floorColorLabel.textColor = label
-        cubeColorLabel.textColor = label
+        
+        let labelLabels: [UILabel] = [showStats, camLockLabel, upForceLabel, gravityLabel, darkModeLabel, skyColorLabel, floorColorLabel, cubeColorLabel]
+        for labelLabel in labelLabels {
+            labelLabel.textColor = label
+        }
         
         skyColorSlider.value = userDefaults.float(forKey: "\(darkPrefix)\(skyColor)")
         floorColorSlider.value = userDefaults.float(forKey: "\(darkPrefix)\(floorColor)")
@@ -83,9 +79,17 @@ class SettingsViewController: UIViewController {
         gravitySlider.value = 0-userDefaults.float(forKey: gravityValue)
         darkModeSwitch.isOn = userDefaults.bool(forKey: darkMode)
         
-        skyHue.layer.cornerRadius = 15
-        floorHue.layer.cornerRadius = 15
-        cubeHue.layer.cornerRadius = 15
+        let hueImages: [UIImageView] = [skyHue, floorHue, cubeHue]
+        for hueImage in hueImages {
+            hueImage.layer.cornerRadius = 2.5
+        }
+        
+        let colorSliders: [UISlider] = [skyColorSlider, floorColorSlider, cubeColorSlider]
+        for colorSlider in colorSliders {
+            colorSlider.setThumbImage(#imageLiteral(resourceName: "normalSlider"), for: .normal)
+            colorSlider.setThumbImage(#imageLiteral(resourceName: "highlightedSlider"), for: .highlighted)
+        }
+        
         setViewColors()
     }
     
@@ -112,6 +116,7 @@ class SettingsViewController: UIViewController {
         userDefaults.set(forceSlider.value, forKey: upForce)
         userDefaults.set(0-gravitySlider.value, forKey: gravityValue)
         userDefaults.set(darkModeSwitch.isOn, forKey: darkMode)
+        
         if darkModeSwitch.isOn {
             saveColorSliders(darkPrefix: "dark")
         } else {

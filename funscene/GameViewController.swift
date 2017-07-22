@@ -37,6 +37,7 @@ class GameViewController: UIViewController {
             darkPrefix = ""
             brightness = 0.9
         }
+        
         scene.physicsWorld.gravity.y = userDefaults.float(forKey: gravityValue)
         scnView.allowsCameraControl = !userDefaults.bool(forKey: camLock)
         scnView.showsStatistics = userDefaults.bool(forKey: scnStats)
