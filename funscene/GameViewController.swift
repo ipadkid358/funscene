@@ -6,12 +6,10 @@
 //  Copyright © 2017 BlackJacket. All rights reserved.
 //
 
-import UIKit
 import SceneKit
 
 class GameViewController: UIViewController {
     
-    // create a new scene
     private let scene: SCNScene = SCNScene(named: "main.scn")!
     
     @IBOutlet public weak var scnView: SCNView!
@@ -59,7 +57,6 @@ class GameViewController: UIViewController {
     }
     
     func setDefaultsIfNone () {
-        
         guard let appBundle: String = Bundle.main.bundleIdentifier else { return }
         let appLibPath: [String] = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)
         
@@ -81,21 +78,6 @@ class GameViewController: UIViewController {
         // If the UserDefaults file doesn't exist, set values to values
         setDefaultsIfNone()
         
-        // create and add a light to the scene
-        let lightNode: SCNNode = SCNNode()
-        lightNode.light = SCNLight()
-        lightNode.light!.type = .omni
-        lightNode.position = SCNVector3(x: 0, y: 10, z: 10)
-        scene.rootNode.addChildNode(lightNode)
-        
-        // create and add an ambient light to the scene
-        let ambientLightNode: SCNNode = SCNNode()
-        ambientLightNode.light = SCNLight()
-        ambientLightNode.light!.type = .ambient
-        ambientLightNode.light!.color = UIColor.darkGray
-        scene.rootNode.addChildNode(ambientLightNode)
-        
-        
         // set the scene to the view
         scnView.scene = scene
         setSceneSettings()
@@ -113,7 +95,6 @@ class GameViewController: UIViewController {
         
         // check that we clicked on at least one object
         if hitResults.count > 0 {
-            // retrieved the first clicked object
             let result: SCNHitTestResult = hitResults[0]
             guard let hitPhyNode: SCNPhysicsBody = result.node.physicsBody else { return }
             hitPhyNode.applyForce(SCNVector3(x: 0, y: userDefaults.float(forKey: upForce), z: 0), asImpulse: true)

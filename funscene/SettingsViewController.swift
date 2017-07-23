@@ -11,17 +11,8 @@ import SceneKit
 class SettingsViewController: UIViewController {
     
     @IBOutlet weak var settingsView: UIView!
-    @IBOutlet weak var showStats: UILabel!
-    @IBOutlet weak var camLockLabel: UILabel!
-    @IBOutlet weak var upForceLabel: UILabel!
-    @IBOutlet weak var gravityLabel: UILabel!
-    @IBOutlet weak var darkModeLabel: UILabel!
-    @IBOutlet weak var skyColorLabel: UILabel!
-    @IBOutlet weak var floorColorLabel: UILabel!
-    @IBOutlet weak var cubeColorLabel: UILabel!
-    @IBOutlet weak var skyHue: UIImageView!
-    @IBOutlet weak var cubeHue: UIImageView!
-    @IBOutlet weak var floorHue: UIImageView!
+    @IBOutlet var labelLabels: [UILabel]!
+    @IBOutlet var hueImages: [UIImageView]!
     
     @IBOutlet weak var scnStatsSwitch: UISwitch!
     @IBOutlet weak var camLockSwitch: UISwitch!
@@ -44,25 +35,23 @@ class SettingsViewController: UIViewController {
     
     func setViewColors() {
         let background: UIColor
-        let label: UIColor
+        let labelColor: UIColor
         let darkPrefix: String
-        
         if darkModeSwitch.isOn {
             background = .black
-            label = .white
+            labelColor = .white
             darkPrefix = "dark"
         } else {
             background = .white
-            label = .black
+            labelColor = .black
             darkPrefix = ""
         }
         
         setNeedsStatusBarAppearanceUpdate()
         settingsView.backgroundColor = background
         
-        let labelLabels: [UILabel] = [showStats, camLockLabel, upForceLabel, gravityLabel, darkModeLabel, skyColorLabel, floorColorLabel, cubeColorLabel]
         for labelLabel in labelLabels {
-            labelLabel.textColor = label
+            labelLabel.textColor = labelColor
         }
         
         skyColorSlider.value = userDefaults.float(forKey: "\(darkPrefix)\(skyColor)")
@@ -79,7 +68,6 @@ class SettingsViewController: UIViewController {
         gravitySlider.value = 0-userDefaults.float(forKey: gravityValue)
         darkModeSwitch.isOn = userDefaults.bool(forKey: darkMode)
         
-        let hueImages: [UIImageView] = [skyHue, floorHue, cubeHue]
         for hueImage in hueImages {
             hueImage.layer.cornerRadius = 2.5
         }

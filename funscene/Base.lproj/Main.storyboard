@@ -135,7 +135,7 @@
                                     <constraint firstAttribute="height" constant="30" id="eaO-Ee-wXd"/>
                                 </constraints>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gravity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iq1-X2-UvQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gravity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iq1-X2-UvQ" userLabel="Gravity Label">
                                 <rect key="frame" x="16" y="199" width="120" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="FGZ-xV-X9x"/>
@@ -218,33 +218,6 @@
                                     <constraint firstAttribute="trailing" secondItem="pkq-Ga-jIC" secondAttribute="trailing" id="y0g-ny-3vS"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUw-Fo-V19" userLabel="Cube View">
-                                <rect key="frame" x="134" y="367" width="170" height="30"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ColorHue" translatesAutoresizingMaskIntoConstraints="NO" id="Qyb-m1-4yo">
-                                        <rect key="frame" x="6" y="1" width="158" height="29"/>
-                                    </imageView>
-                                    <slider opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jHq-zr-hWd">
-                                        <rect key="frame" x="-2" y="0.0" width="174" height="31"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </slider>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="Qyb-m1-4yo" firstAttribute="top" secondItem="zUw-Fo-V19" secondAttribute="top" constant="1" id="Eej-rv-1ZX"/>
-                                    <constraint firstAttribute="bottom" secondItem="jHq-zr-hWd" secondAttribute="bottom" id="GvZ-Fb-SJ2"/>
-                                    <constraint firstItem="jHq-zr-hWd" firstAttribute="top" secondItem="zUw-Fo-V19" secondAttribute="top" id="Rep-aS-4hI"/>
-                                    <constraint firstAttribute="trailing" secondItem="Qyb-m1-4yo" secondAttribute="trailing" constant="6" id="S1S-rs-R4L"/>
-                                    <constraint firstAttribute="bottom" secondItem="Qyb-m1-4yo" secondAttribute="bottom" id="akO-c6-xNO"/>
-                                    <constraint firstItem="jHq-zr-hWd" firstAttribute="leading" secondItem="zUw-Fo-V19" secondAttribute="leading" id="cLu-UZ-cck"/>
-                                    <constraint firstAttribute="trailing" secondItem="jHq-zr-hWd" secondAttribute="trailing" id="mdT-Qq-ZsJ"/>
-                                    <constraint firstItem="Qyb-m1-4yo" firstAttribute="leading" secondItem="zUw-Fo-V19" secondAttribute="leading" constant="6" id="sWb-tz-bSd"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06D-OD-wgT" userLabel="Floor View">
                                 <rect key="frame" x="134" y="324" width="170" height="30"/>
                                 <subviews>
@@ -271,6 +244,33 @@
                                     <constraint firstItem="DvJ-pS-gCl" firstAttribute="top" secondItem="06D-OD-wgT" secondAttribute="top" id="rQi-YE-BCz"/>
                                     <constraint firstAttribute="bottom" secondItem="5Kr-1V-4HI" secondAttribute="bottom" id="rXK-uP-WlA"/>
                                     <constraint firstAttribute="height" constant="30" id="rji-2X-ml4"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUw-Fo-V19" userLabel="Cube View">
+                                <rect key="frame" x="134" y="367" width="170" height="30"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ColorHue" translatesAutoresizingMaskIntoConstraints="NO" id="Qyb-m1-4yo">
+                                        <rect key="frame" x="6" y="1" width="158" height="29"/>
+                                    </imageView>
+                                    <slider opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jHq-zr-hWd">
+                                        <rect key="frame" x="-2" y="0.0" width="174" height="31"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </slider>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Qyb-m1-4yo" firstAttribute="top" secondItem="zUw-Fo-V19" secondAttribute="top" constant="1" id="Eej-rv-1ZX"/>
+                                    <constraint firstAttribute="bottom" secondItem="jHq-zr-hWd" secondAttribute="bottom" id="GvZ-Fb-SJ2"/>
+                                    <constraint firstItem="jHq-zr-hWd" firstAttribute="top" secondItem="zUw-Fo-V19" secondAttribute="top" id="Rep-aS-4hI"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qyb-m1-4yo" secondAttribute="trailing" constant="6" id="S1S-rs-R4L"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qyb-m1-4yo" secondAttribute="bottom" id="akO-c6-xNO"/>
+                                    <constraint firstItem="jHq-zr-hWd" firstAttribute="leading" secondItem="zUw-Fo-V19" secondAttribute="leading" id="cLu-UZ-cck"/>
+                                    <constraint firstAttribute="trailing" secondItem="jHq-zr-hWd" secondAttribute="trailing" id="mdT-Qq-ZsJ"/>
+                                    <constraint firstItem="Qyb-m1-4yo" firstAttribute="leading" secondItem="zUw-Fo-V19" secondAttribute="leading" constant="6" id="sWb-tz-bSd"/>
                                 </constraints>
                             </view>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="q7J-Uw-fTp">
@@ -333,26 +333,26 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="camLockLabel" destination="ILN-52-iyo" id="AK4-fz-VND"/>
                         <outlet property="camLockSwitch" destination="xgp-16-Wzp" id="YhH-VL-sT4"/>
-                        <outlet property="cubeColorLabel" destination="Hbo-H8-u9R" id="bet-gE-Krz"/>
                         <outlet property="cubeColorSlider" destination="jHq-zr-hWd" id="Q6S-2a-zNI"/>
-                        <outlet property="cubeHue" destination="Qyb-m1-4yo" id="Vfw-1Q-aa3"/>
-                        <outlet property="darkModeLabel" destination="pcx-up-Sw2" id="XIF-tG-kpB"/>
                         <outlet property="darkModeSwitch" destination="q7J-Uw-fTp" id="SZ1-Qq-AcV"/>
-                        <outlet property="floorColorLabel" destination="pew-yk-acF" id="W26-Na-6fh"/>
                         <outlet property="floorColorSlider" destination="DvJ-pS-gCl" id="1m6-P1-m3z"/>
-                        <outlet property="floorHue" destination="5Kr-1V-4HI" id="WNf-mr-sce"/>
                         <outlet property="forceSlider" destination="f0b-Mh-nsk" id="Qaa-u6-e56"/>
-                        <outlet property="gravityLabel" destination="iq1-X2-UvQ" id="mdT-7D-WHf"/>
                         <outlet property="gravitySlider" destination="hbo-3L-QAg" id="xwU-z0-6HV"/>
                         <outlet property="scnStatsSwitch" destination="iH6-Nf-vpQ" id="zuh-26-Eqz"/>
                         <outlet property="settingsView" destination="WKy-ix-nEj" id="xpJ-kP-Y9d"/>
-                        <outlet property="showStats" destination="7jv-Gx-MQB" id="CSy-D3-JH8"/>
-                        <outlet property="skyColorLabel" destination="JAd-1c-N26" id="Ffg-pX-aje"/>
                         <outlet property="skyColorSlider" destination="pkq-Ga-jIC" id="v2Q-m6-RDo"/>
-                        <outlet property="skyHue" destination="WKW-0J-U3u" id="gO9-np-62e"/>
-                        <outlet property="upForceLabel" destination="QUd-Ud-xm3" id="V74-Eq-9RH"/>
+                        <outletCollection property="labelLabels" destination="JAd-1c-N26" collectionClass="NSMutableArray" id="mvq-HW-0ti"/>
+                        <outletCollection property="labelLabels" destination="7jv-Gx-MQB" collectionClass="NSMutableArray" id="gKI-iI-oYX"/>
+                        <outletCollection property="labelLabels" destination="ILN-52-iyo" collectionClass="NSMutableArray" id="5lz-Xo-G3Q"/>
+                        <outletCollection property="labelLabels" destination="QUd-Ud-xm3" collectionClass="NSMutableArray" id="Ptb-aX-crj"/>
+                        <outletCollection property="labelLabels" destination="iq1-X2-UvQ" collectionClass="NSMutableArray" id="FO0-3P-qfm"/>
+                        <outletCollection property="labelLabels" destination="pcx-up-Sw2" collectionClass="NSMutableArray" id="hKj-Ja-LR7"/>
+                        <outletCollection property="labelLabels" destination="pew-yk-acF" collectionClass="NSMutableArray" id="tGD-gX-cRt"/>
+                        <outletCollection property="labelLabels" destination="Hbo-H8-u9R" collectionClass="NSMutableArray" id="ZbC-Ul-3CR"/>
+                        <outletCollection property="hueImages" destination="WKW-0J-U3u" collectionClass="NSMutableArray" id="B9L-Pl-mX8"/>
+                        <outletCollection property="hueImages" destination="5Kr-1V-4HI" collectionClass="NSMutableArray" id="DQ4-6f-Vgy"/>
+                        <outletCollection property="hueImages" destination="Qyb-m1-4yo" collectionClass="NSMutableArray" id="srV-z2-j5q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S5i-0T-s3s" userLabel="First Responder" sceneMemberID="firstResponder"/>
