@@ -11,7 +11,6 @@ import SceneKit
 class SettingsViewController: UITableViewController {
     
     @IBOutlet weak var settingsView: UITableView!
-    @IBOutlet weak var settingsNavBar: UINavigationItem!
     @IBOutlet var labelLabels: [UILabel]!
     @IBOutlet var hueImages: [UIImageView]!
     @IBOutlet var tableCells: [UITableViewCell]!
@@ -41,20 +40,22 @@ class SettingsViewController: UITableViewController {
         let backgroundColor: UIColor
         let labelColor: UIColor
         let darkPrefix: String
+        guard let settingsNavBar: UINavigationController = self.navigationController else { return }
         if darkModeSwitch.isOn {
             backgroundColor = .black
             labelColor = .white
             darkPrefix = "dark"
+            settingsNavBar.navigationBar.barStyle = .black
         } else {
             backgroundColor = .white
             labelColor = .black
             darkPrefix = ""
+            settingsNavBar.navigationBar.barStyle = .default
         }
         
-        setNeedsStatusBarAppearanceUpdate()
         settingsView.backgroundColor = backgroundColor
         settingsView.separatorColor = backgroundColor
-
+        
         for tableCell in tableCells {
             tableCell.backgroundColor = backgroundColor
         }
@@ -133,9 +134,5 @@ class SettingsViewController: UITableViewController {
         
         dismiss(animated: true, completion: nil)
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return darkModeSwitch.isOn ? .lightContent : .default
-    }
-    
+        
 }
