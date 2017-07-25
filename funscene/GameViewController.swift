@@ -24,6 +24,7 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
     private let skyColor: String = "skyColor"
     private let floorColor: String = "floorColor"
     private let cubeColor: String = "cubeColor"
+    private let showHeight: String = "showHeight"
     var boxes: [SCNNode] = []
     var geoFloor: SCNFloor? = nil
     
@@ -51,6 +52,8 @@ class GameViewController: UIViewController, SCNSceneRendererDelegate {
             let geoBox: SCNBox? = box.geometry as? SCNBox
             guard let boxNode: SCNBox = geoBox, let boxMaterial = boxNode.firstMaterial else { return }
             boxMaterial.diffuse.contents = UIColor(hue: CGFloat(userDefaults.float(forKey: "\(darkPrefix)\(cubeColor)")), saturation: 1, brightness: brightness, alpha: 1)
+            
+            cubeHeight.isHidden = !userDefaults.bool(forKey: showHeight)
         }
     }
     

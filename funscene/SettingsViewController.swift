@@ -8,11 +8,13 @@
 
 import SceneKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UITableViewController {
     
-    @IBOutlet weak var settingsView: UIView!
+    @IBOutlet weak var settingsView: UITableView!
+    @IBOutlet weak var settingsNavBar: UINavigationItem!
     @IBOutlet var labelLabels: [UILabel]!
     @IBOutlet var hueImages: [UIImageView]!
+    @IBOutlet var tableCells: [UITableViewCell]!
     
     @IBOutlet weak var scnStatsSwitch: UISwitch!
     @IBOutlet weak var camLockSwitch: UISwitch!
@@ -22,6 +24,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var skyColorSlider: UISlider!
     @IBOutlet weak var floorColorSlider: UISlider!
     @IBOutlet weak var cubeColorSlider: UISlider!
+    @IBOutlet weak var showHeightSwitch: UISwitch!
     
     private let userDefaults: UserDefaults = UserDefaults.standard
     private let scnStats: String = "scnStats"
@@ -32,23 +35,29 @@ class SettingsViewController: UIViewController {
     private let skyColor: String = "skyColor"
     private let floorColor: String = "floorColor"
     private let cubeColor: String = "cubeColor"
+    private let showHeight: String = "showHeight"
     
     func setViewColors() {
-        let background: UIColor
+        let backgroundColor: UIColor
         let labelColor: UIColor
         let darkPrefix: String
         if darkModeSwitch.isOn {
-            background = .black
+            backgroundColor = .black
             labelColor = .white
             darkPrefix = "dark"
         } else {
-            background = .white
+            backgroundColor = .white
             labelColor = .black
             darkPrefix = ""
         }
         
         setNeedsStatusBarAppearanceUpdate()
-        settingsView.backgroundColor = background
+        settingsView.backgroundColor = backgroundColor
+        settingsView.separatorColor = backgroundColor
+
+        for tableCell in tableCells {
+            tableCell.backgroundColor = backgroundColor
+        }
         
         for labelLabel in labelLabels {
             labelLabel.textColor = labelColor
@@ -67,10 +76,16 @@ class SettingsViewController: UIViewController {
         forceSlider.value = userDefaults.float(forKey: upForce)
         gravitySlider.value = 0-userDefaults.float(forKey: gravityValue)
         darkModeSwitch.isOn = userDefaults.bool(forKey: darkMode)
+        showHeightSwitch.isOn = userDefaults.bool(forKey: showHeight)
         
         for hueImage in hueImages {
             hueImage.layer.cornerRadius = 2.5
         }
+        
+        for tableCell in tableCells {
+            tableCell.selectionStyle = .none
+        }
+
         
         let colorSliders: [UISlider] = [skyColorSlider, floorColorSlider, cubeColorSlider]
         for colorSlider in colorSliders {
@@ -104,6 +119,7 @@ class SettingsViewController: UIViewController {
         userDefaults.set(forceSlider.value, forKey: upForce)
         userDefaults.set(0-gravitySlider.value, forKey: gravityValue)
         userDefaults.set(darkModeSwitch.isOn, forKey: darkMode)
+        userDefaults.set(showHeightSwitch.isOn, forKey: showHeight)
         
         if darkModeSwitch.isOn {
             saveColorSliders(darkPrefix: "dark")
