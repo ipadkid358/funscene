@@ -8,11 +8,12 @@
 
 import SceneKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, SCNSceneRendererDelegate {
     
     private let scene: SCNScene = SCNScene(named: "main.scn")!
     
     @IBOutlet public weak var scnView: SCNView!
+    @IBOutlet weak var cubeHeight: UILabel!
     
     private let userDefaults: UserDefaults = UserDefaults.standard
     private let scnStats: String = "scnStats"
@@ -23,7 +24,8 @@ class GameViewController: UIViewController {
     private let skyColor: String = "skyColor"
     private let floorColor: String = "floorColor"
     private let cubeColor: String = "cubeColor"
-    
+    var boxes: [SCNNode] = []
+    var geoFloor: SCNFloor? = nil
     
     func setSceneSettings() {
         let darkPrefix: String
@@ -42,13 +44,9 @@ class GameViewController: UIViewController {
         
         scnView.backgroundColor = UIColor(hue: CGFloat(userDefaults.float(forKey: "\(darkPrefix)\(skyColor)")), saturation: 1, brightness: brightness, alpha: 1)
         
-        guard let floorNode: SCNNode = scene.rootNode.childNode(withName: "floor", recursively: true) else { return }
-        let geoFloor: SCNFloor? = floorNode.geometry as? SCNFloor
         guard let floor = geoFloor, let floorMaterial = floor.firstMaterial else { return }
         floorMaterial.diffuse.contents = UIColor(hue: CGFloat(userDefaults.float(forKey: "\(darkPrefix)\(floorColor)")), saturation: 1, brightness: brightness, alpha: 1)
         
-        guard let boxNodes: SCNNode = scene.rootNode.childNode(withName: "boxes", recursively: true) else { return }
-        let boxes: [SCNNode] = boxNodes.childNodes
         for box: SCNNode in boxes {
             let geoBox: SCNBox? = box.geometry as? SCNBox
             guard let boxNode: SCNBox = geoBox, let boxMaterial = boxNode.firstMaterial else { return }
@@ -80,11 +78,20 @@ class GameViewController: UIViewController {
         
         // set the scene to the view
         scnView.scene = scene
+        guard let floorNode: SCNNode = scene.rootNode.childNode(withName: "floor", recursively: true) else { return }
+        geoFloor = floorNode.geometry as? SCNFloor
+        
+        guard let boxNodes: SCNNode = scene.rootNode.childNode(withName: "boxes", recursively: true) else { return }
+        boxes = boxNodes.childNodes
         setSceneSettings()
+        
+        cubeHeight.layer.cornerRadius = 5
         
         // add a tap gesture recognizer
         let tapGesture: UIGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         scnView.addGestureRecognizer(tapGesture)
+        
+        scnView.delegate = self
     }
     
     func handleTap(_ gestureRecognize: UIGestureRecognizer) {
@@ -105,4 +112,17 @@ class GameViewController: UIViewController {
         return true
     }
     
+    private func updateHeightLabel() {
+        var highest: Float = 0
+        for box: SCNNode in boxes {
+            highest = max(highest, box.presentation.position.y)
+        }
+        cubeHeight.text = String(Int(round(highest)))
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        DispatchQueue.main.async { [weak self] in
+            self?.updateHeightLabel()
+        }
+    }
 }
